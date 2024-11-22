@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrahead %} 
+<title>Inicio</title>
+{% endblock extrahead%}
+
+{% block content %}
+<h1>Listado de Autos</h1>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Año</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Detalles</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for auto in autos %}
+        <tr>
+            <td>{{ auto.id }}</td>
+            <td>{{ auto.marca }}</td>
+            <td>{{ auto.modelo }}</td>
+            <td>{{ auto.año }}</td>
+            <td>${{ auto.precio }}</td>
+            <td><a class="btn btn-success" href="{% url 'detalle_auto' auto.id %}">Detalles</a></td>
+        </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

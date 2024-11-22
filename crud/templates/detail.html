@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrahead %} 
+<title>Detalle Producto</title>
+{% endblock extrahead%}
+
+{% block content %}
+<a class="btn btn-warning" href="{% url 'index' %}">Regresar</a>
+<h1>Detalle del Auto</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Año</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Kilometraje</th>
+            <th scope="col">Tipo de Combustible</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ auto.id }}</td>
+            <td>{{ auto.marca }}</td>
+            <td>{{ auto.modelo }}</td>
+            <td>{{ auto.año }}</td>
+            <td>${{ auto.precio }}</td>
+            <td>{{ auto.kilometraje }} km</td>
+            <td>{{ auto.tipo_combustible }}</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock content %}
